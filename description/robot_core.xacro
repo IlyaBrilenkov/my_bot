@@ -19,6 +19,10 @@
         <color rgba="0 0 0 1"/>
     </material>
 
+    <material name="yellow">
+        <color rgba="0.94 0.79 0.09 1"/>
+    </material>
+
 
     <!-- BASE LINK -->
 
@@ -26,24 +30,24 @@
 
     </link>
 
-    <!-- CHASSIS LINK -->
+    <!-- BODY LINK -->
 
-    <joint name="chassis_joint" type="fixed">
+    <joint name="body_joint" type="fixed">
         <parent link="base_link"/>
-        <child link="chassis"/>
-        <origin xyz="-0.023 0 0"/>
+        <child link="body"/>
+        <origin xyz="0.05 0 0"/>
     </joint>
 
-    <link name="chassis">
+    <link name="body">
         <visual>
-            <origin xyz="0.13 0 0.05"/>
+            <origin xyz="-0.135 0 0.05"/>
             <geometry>
                 <box size="0.27 0.1 0.1"/>
             </geometry>
-            <material name="white"/>
+            <material name="yellow"/>
         </visual>
         <collision>
-            <origin xyz="0.13 0 0.05"/>
+            <origin xyz="0 0 0"/>
             <geometry>
                 <box size="0.27 0.1 0.1"/>
             </geometry>
@@ -53,45 +57,73 @@
         </xacro:inertial_box> -->
     </link>
 
-    <!-- LEFT WHEEL LINK -->
+    <!-- LEFT REAR WHEEL LINK -->
 
-    <joint name="left_wheel_joint" type="continuous">
+    <joint name="left_rear_wheel_joint" type="continuous">
         <parent link="base_link"/>
-        <child link="left_wheel"/>
-        <origin xyz="0 0.175 0" rpy="-${pi/2} 0 0"/>
+        <child link="left_rear_wheel"/>
+        <origin xyz="0 -0.05 0" rpy="-${pi/2} 0 0"/>
         <axis xyz="0 0 1"/>
     </joint>
 
-    <link name="left_wheel">
+    <link name="left_rear_wheel">
         <visual>
             <geometry>
-                <cylinder radius="0.1" length="0.01"/>
+                <cylinder radius="0.02" length="0.01"/>
+            </geometry>
+            <material name="black"/>
+        </visual>
+        <collision>
+            <geometry>
+                <cylinder radius="0.02" length="0.01"/>
+            </geometry>
+        </collision>
+    </link>
+
+    <!-- RIGHT REAR WHEEL LINK -->
+
+    <joint name="right_rear_wheel_joint" type="continuous">
+        <parent link="base_link"/>
+        <child link="right_rear_wheel"/>
+        <origin xyz="0 0.05 0" rpy="${pi/2} 0 0"/>
+        <axis xyz="0 0 -1"/>
+    </joint>
+
+    <link name="right_rear_wheel">
+        <visual>
+            <geometry>
+                <cylinder radius="0.02" length="0.01"/>
+            </geometry>
+            <material name="black"/>
+        </visual>
+        <collision>
+            <geometry>
+                <cylinder radius="0.02" length="0.01"/>
+            </geometry>
+        </collision>
+    </link>
+
+    <!-- LEFT FRONT WHEEL LINK
+
+    <joint name="left_front_wheel_joint" type="continuous">
+        <parent link="base_link"/>
+        <child link="left_rear_wheel"/>
+        <origin xyz="0 -0.05 0" rpy="-${pi/2} 0 0"/>
+        <axis xyz="0 0 1"/>
+    </joint>
+
+    <link name="left_rear_wheel">
+        <visual>
+            <geometry>
+                <cylinder radius="0.02" length="0.01"/>
             </geometry>
             <material name="blue"/>
         </visual>
         <collision>
             <geometry>
-                <cylinder radius="0.1" length="0.01"/>
+                <cylinder radius="0.02" length="0.01"/>
             </geometry>
         </collision>
-    </link>
-
-    <!-- RIGHT WHEEL LINK -->
-
-    <joint name="right_wheel_joint" type="continuous">
-        <parent link="base_link"/>
-        <child link="right_wheel"/>
-        <origin xyz="0 -0.175 0" rpy="${pi/2} 0 0"/>
-        <axis xyz="0 0 -1"/>
-    </joint>
-
-    <link name="right_wheel">
-        <visual>
-            <geometry>
-                <cylinder radius="0.1" length="0.01"/>
-            </geometry>
-            <material name="blue"/>
-        </visual>
-    </link>
+    </link> -->
 
 </robot>
