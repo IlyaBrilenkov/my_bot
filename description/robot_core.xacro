@@ -6,8 +6,7 @@
     <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" output="screen"/>
 </launch>
 
-    <!-- <xacro:include filename="inertial_macros.xacro"/> -->
-
+    <xacro:include filename="inertial_macros.xacro"/>
 
 
     <material name="white">
@@ -59,9 +58,10 @@
                 <box size="0.27 0.1 0.1"/>
             </geometry>
         </collision>
-        <!-- <xacro:inertial_box mass="0.5" x="0.27" y="0.1" z="0.1"> -->
-            <!-- <origin xyz="0.13 0 0.05" rpy="0 0 0"/>
-        </xacro:inertial_box> -->
+
+        <xacro:inertial_box mass="0.5" x="0.27" y="0.1" z="0.1"> 
+            <origin xyz="0.13 0 0.05" rpy="0 0 0"/>
+        </xacro:inertial_box>
     </link>
 
     <!-- CAMERA BASE LINK -->
@@ -86,9 +86,10 @@
                 <box size="0.055 0.035 0.015"/>
             </geometry>
         </collision>
-        <!-- <xacro:inertial_box mass="0.5" x="0.27" y="0.1" z="0.1"> -->
-            <!-- <origin xyz="0.13 0 0.05" rpy="0 0 0"/>
-        </xacro:inertial_box> -->
+
+        <xacro:inertial_box mass="0.05" x="0.055" y="0.035" z="0.015"> 
+            <origin xyz="0.0275 0 0.0075" rpy="0 0 0"/>
+        </xacro:inertial_box>
     </link>
 
     <!-- CAMERA BODY LINK -->
@@ -113,9 +114,10 @@
                 <box size="0.02 0.075 0.035"/>
             </geometry>
         </collision>
-        <!-- <xacro:inertial_box mass="0.5" x="0.27" y="0.1" z="0.1"> -->
-            <!-- <origin xyz="0.13 0 0.05" rpy="0 0 0"/>
-        </xacro:inertial_box> -->
+        
+        <xacro:inertial_box mass="0.05" x="0.02" y="0.075" z="0.035">
+            <origin xyz="0.01 0 0.0175" rpy="0 0 0"/>
+        </xacro:inertial_box>
     </link>
 
 
@@ -140,6 +142,10 @@
                 <cylinder radius="0.02" length="0.01"/>
             </geometry>
         </collision>
+
+        <xacro:inertial_cylinder mass="0.1" length="0.01" radius="0.02">
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+        </xacro:inertial_cylinder>
     </link>
 
     <!-- RIGHT REAR WHEEL LINK -->
@@ -163,6 +169,10 @@
                 <cylinder radius="0.02" length="0.01"/>
             </geometry>
         </collision>
+            
+        <xacro:inertial_cylinder mass="0.1" length="0.01" radius="0.02">
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+        </xacro:inertial_cylinder>
     </link>
 
     <!-- LEFT FRONT STAND LINK-->
@@ -188,6 +198,10 @@
                 <cylinder radius="0.002" length="0.01"/>
             </geometry>
         </collision>
+
+        <xacro:inertial_cylinder mass="0.01" length="0.01" radius="0.002">
+            <origin xyz="0 0 0.005" rpy="0 0 0"/>
+        </xacro:inertial_cylinder>
     </link>
 
     <!-- RIGHT FRONT STAND LINK -->
@@ -213,6 +227,10 @@
                 <cylinder radius="0.002" length="0.01"/>
             </geometry>
         </collision>
+        
+        <xacro:inertial_cylinder mass="0.01" length="0.01" radius="0.002">
+            <origin xyz="0 0 0.005" rpy="0 0 0"/>
+        </xacro:inertial_cylinder>
     </link>
 
     <!-- LEFT FRONT WHEEL LINK -->
@@ -236,6 +254,10 @@
                 <cylinder radius="0.02" length="0.01"/>
             </geometry>
         </collision>
+        
+        <xacro:inertial_cylinder mass="0.1" length="0.01" radius="0.02">
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+        </xacro:inertial_cylinder>
     </link> 
 
     <!-- RIGHT FRONT WHEEL LINK -->
@@ -259,6 +281,10 @@
                 <cylinder radius="0.02" length="0.01"/>
             </geometry>
         </collision>
+        
+        <xacro:inertial_cylinder mass="0.1" length="0.01" radius="0.02">
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+        </xacro:inertial_cylinder>
     </link> 
 
 </robot>
